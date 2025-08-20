@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Pembelajaran Kewirausahaan - Peluang Usaha</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .slide-in {
+            animation: slideIn 0.3s ease-out;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <h1 class="text-3xl font-bold text-indigo-800">📚 Pembelajaran Kewirausahaan</h1>
+            <p class="text-gray-600 mt-2">Materi: Peluang Usaha</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-indigo-600 text-white">
+        <div class="container mx-auto px-6">
+            <div class="flex space-x-1">
+                <button onclick="showPage(1)" id="nav1" class="px-4 py-3 hover:bg-indigo-700 transition-colors nav-btn active">
+                    1. Peluang Usaha
+                </button>
+                <button onclick="showPage(2)" id="nav2" class="px-4 py-3 hover:bg-indigo-700 transition-colors nav-btn">
+                    2. Analisis SWOT
+                </button>
+                <button onclick="showPage(3)" id="nav3" class="px-4 py-3 hover:bg-indigo-700 transition-colors nav-btn">
+                    3. Studi Kasus
+                </button>
+                <button onclick="showPage(4)" id="nav4" class="px-4 py-3 hover:bg-indigo-700 transition-colors nav-btn">
+                    4. Kuis
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <!-- Halaman 1: Peluang Usaha -->
+        <div id="page1" class="page fade-in">
+            <!-- Hero Section dengan Ilustrasi -->
+            <div class="bg-gradient-to-r from-emerald-500 to-blue-600 rounded-lg shadow-lg p-8 mb-8 text-white relative overflow-hidden">
+                <div class="relative z-10">
+                    <div class="flex items-center justify-between">
+                        <div class="flex-1">
+                            <h2 class="text-3xl font-bold mb-4 flex items-center">
+                                🚀 Peluang Usaha: Kunci Sukses Wirausaha
+                            </h2>
+                            <p class="text-lg opacity-90 leading-relaxed">
+                                Temukan, analisis, dan manfaatkan peluang bisnis untuk membangun usaha yang sukses dan berkelanjutan
+                            </p>
+                        </div>
+                        <div class="hidden md:block ml-8">
+                            <!-- Ilustrasi SVG Wirausaha -->
+                            <svg width="200" height="150" viewBox="0 0 200 150" class="opacity-80">
+                                <!-- Background elements -->
+                                <circle cx="160" cy="40" r="25" fill="rgba(255,255,255,0.1)"/>
+                                <circle cx="180" cy="80" r="15" fill="rgba(255,255,255,0.1)"/>
+                                <circle cx="170" cy="120" r="20" fill="rgba(255,255,255,0.1)"/>
+                                
+                                <!-- Person with lightbulb -->
+                                <ellipse cx="80" cy="140" rx="25" ry="8" fill="rgba(255,255,255,0.2)"/>
+                                <rect x="70" y="100" width="20" height="40" rx="10" fill="#FFF"/>
+                                <circle cx="80" cy="85" r="12" fill="#FFF"/>
+                                <rect x="75" y="105" width="10" height="20" fill="#3B82F6"/>
+                                <rect x="65" y="115" width="8" height="15" fill="#3B82F6"/>
+                                <rect x="87" y="115" width="8" height="15" fill="#3B82F6"/>
+                                
+                                <!-- Lightbulb above head -->
+                                <circle cx="80" cy="55" r="8" fill="#FCD34D" stroke="#F59E0B" stroke-width="2"/>
+                                <rect x="77" y="63" width="6" height="4" fill="#F59E0B"/>
+                                <line x1="80" y1="45" x2="80" y2="40" stroke="#FCD34D" stroke-width="2"/>
+                                <line x1="88" y1="50" x2="92" y2="46" stroke="#FCD34D" stroke-width="2"/>
+                                <line x1="72" y1="50" x2="68" y2="46" stroke="#FCD34D" stroke-width="2"/>
+                                
+                                <!-- Growth chart -->
+                                <rect x="20" y="80" width="40" height="50" fill="rgba(255,255,255,0.1)" rx="4"/>
+                                <polyline points="25,120 30,110 35,105 40,95 45,85 50,90 55,80" 
+                                         fill="none" stroke="#10B981" stroke-width="3"/>
+                                <circle cx="25" cy="120" r="2" fill="#10B981"/>
+                                <circle cx="35" cy="105" r="2" fill="#10B981"/>
+                                <circle cx="45" cy="85" r="2" fill="#10B981"/>
+                                <circle cx="55" cy="80" r="2" fill="#10B981"/>
+                                
+                                <!-- Dollar signs -->
+                                <text x="120" y="30" fill="#FCD34D" font-size="20" font-weight="bold">$</text>
+                                <text x="140" y="50" fill="#FCD34D" font-size="16" font-weight="bold">$</text>
+                                <text x="130" y="70" fill="#FCD34D" font-size="18" font-weight="bold">$</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <!-- Background pattern -->
+                <div class="absolute top-0 right-0 w-full h-full opacity-10">
+                    <div class="absolute top-4 right-4 w-8 h-8 border-2 border-white rounded-full"></div>
+                    <div class="absolute top-12 right-16 w-4 h-4 border-2 border-white rounded-full"></div>
+                    <div class="absolute top-20 right-8 w-6 h-6 border-2 border-white rounded-full"></div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                            📖 Pengertian Peluang Usaha
+                        </h3>
+                        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg mb-6">
+                            <p class="text-gray-700 leading-relaxed">
+                                Peluang usaha adalah <strong>kesempatan emas</strong> yang dapat dimanfaatkan oleh wirausaha untuk memulai atau mengembangkan usaha dengan memanfaatkan sumber daya yang tersedia untuk menciptakan nilai dan keuntungan bagi semua pihak.
+                            </p>
+                        </div>
+                        
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                            ⭐ Karakteristik Peluang Usaha yang Baik
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start bg-green-50 p-3 rounded-lg">
+                                <span class="text-green-500 mr-3 text-xl">✓</span>
+                                <div>
+                                    <span class="font-semibold text-green-800">Daya Tarik Konsumen</span>
+                                    <p class="text-sm text-green-700 mt-1">Produk/layanan yang diinginkan dan dibutuhkan pasar</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start bg-blue-50 p-3 rounded-lg">
+                                <span class="text-blue-500 mr-3 text-xl">✓</span>
+                                <div>
+                                    <span class="font-semibold text-blue-800">Profitabilitas Tinggi</span>
+                                    <p class="text-sm text-blue-700 mt-1">Mampu memberikan keuntungan yang berkelanjutan</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start bg-purple-50 p-3 rounded-lg">
+                                <span class="text-purple-500 mr-3 text-xl">✓</span>
+                                <div>
+                                    <span class="font-semibold text-purple-800">Ketersediaan Sumber Daya</span>
+                                    <p class="text-sm text-purple-700 mt-1">Modal, SDM, dan teknologi yang memadai</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start bg-orange-50 p-3 rounded-lg">
+                                <span class="text-orange-500 mr-3 text-xl">✓</span>
+                                <div>
+                                    <span class="font-semibold text-orange-800">Dukungan Lingkungan</span>
+                                    <p class="text-sm text-orange-700 mt-1">Kondisi eksternal yang mendukung pengembangan usaha</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                            🌟 Sumber-Sumber Peluang Usaha
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-5 rounded-lg border-l-4 border-blue-500">
+                                <h4 class="font-semibold text-blue-800 flex items-center mb-2">
+                                    🔍 Perubahan Lingkungan
+                                </h4>
+                                <p class="text-sm text-blue-700 mb-2">Perubahan teknologi, sosial, dan ekonomi</p>
+                                <div class="text-xs text-blue-600">
+                                    <span class="bg-blue-200 px-2 py-1 rounded mr-1">Digitalisasi</span>
+                                    <span class="bg-blue-200 px-2 py-1 rounded mr-1">Urbanisasi</span>
+                                    <span class="bg-blue-200 px-2 py-1 rounded">Inflasi</span>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-r from-green-50 to-green-100 p-5 rounded-lg border-l-4 border-green-500">
+                                <h4 class="font-semibold text-green-800 flex items-center mb-2">
+                                    👥 Kebutuhan Konsumen
+                                </h4>
+                                <p class="text-sm text-green-700 mb-2">Identifikasi kebutuhan yang belum terpenuhi</p>
+                                <div class="text-xs text-green-600">
+                                    <span class="bg-green-200 px-2 py-1 rounded mr-1">Convenience</span>
+                                    <span class="bg-green-200 px-2 py-1 rounded mr-1">Kesehatan</span>
+                                    <span class="bg-green-200 px-2 py-1 rounded">Edukasi</span>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-r from-purple-50 to-purple-100 p-5 rounded-lg border-l-4 border-purple-500">
+                                <h4 class="font-semibold text-purple-800 flex items-center mb-2">
+                                    💡 Inovasi & Kreativitas
+                                </h4>
+                                <p class="text-sm text-purple-700 mb-2">Pengembangan produk atau layanan baru</p>
+                                <div class="text-xs text-purple-600">
+                                    <span class="bg-purple-200 px-2 py-1 rounded mr-1">R&D</span>
+                                    <span class="bg-purple-200 px-2 py-1 rounded mr-1">Disrupsi</span>
+                                    <span class="bg-purple-200 px-2 py-1 rounded">Patent</span>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-r from-orange-50 to-orange-100 p-5 rounded-lg border-l-4 border-orange-500">
+                                <h4 class="font-semibold text-orange-800 flex items-center mb-2">
+                                    🌍 Globalisasi
+                                </h4>
+                                <p class="text-sm text-orange-700 mb-2">Peluang pasar internasional</p>
+                                <div class="text-xs text-orange-600">
+                                    <span class="bg-orange-200 px-2 py-1 rounded mr-1">Export</span>
+                                    <span class="bg-orange-200 px-2 py-1 rounded mr-1">E-commerce</span>
+                                    <span class="bg-orange-200 px-2 py-1 rounded">Cross-border</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Detailed Identification Process -->
+                <div class="bg-gradient-to-r from-indigo-50 to-blue-50 p-8 rounded-lg mb-8">
+                    <h3 class="text-2xl font-semibold text-indigo-800 mb-6 text-center flex items-center justify-center">
+                        🎯 Proses Identifikasi Peluang Usaha Secara Detail
+                    </h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Step 1 & 2 -->
+                        <div class="space-y-6">
+                            <div class="bg-white p-6 rounded-lg shadow-md">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4">1</div>
+                                    <h4 class="text-lg font-semibold text-indigo-800">Observasi Lingkungan</h4>
+                                </div>
+                                <ul class="space-y-2 text-gray-700 text-sm">
+                                    <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span>Amati tren pasar dan perubahan sosial</li>
+                                    <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span>Identifikasi masalah yang sering dikeluhkan</li>
+                                    <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span>Perhatikan gap di pasar existing</li>
+                                    <li class="flex items-start"><span class="text-indigo-500 mr-2">•</span>Analisis kompetitor dan kelemahan mereka</li>
+                                </ul>
+                                <div class="mt-4 p-3 bg-indigo-50 rounded-lg">
+                                    <p class="text-xs text-indigo-700"><strong>Contoh:</strong> Melihat antrian panjang di warung makan → peluang delivery food</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-6 rounded-lg shadow-md">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-green-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4">2</div>
+                                    <h4 class="text-lg font-semibold text-green-800">Analisis Kebutuhan</h4>
+                                </div>
+                                <ul class="space-y-2 text-gray-700 text-sm">
+                                    <li class="flex items-start"><span class="text-green-500 mr-2">•</span>Lakukan survey dan wawancara konsumen</li>
+                                    <li class="flex items-start"><span class="text-green-500 mr-2">•</span>Gunakan tools seperti Google Trends</li>
+                                    <li class="flex items-start"><span class="text-green-500 mr-2">•</span>Analisis media sosial dan forum online</li>
+                                    <li class="flex items-start"><span class="text-green-500 mr-2">•</span>Validasi dengan focus group discussion</li>
+                                </ul>
+                                <div class="mt-4 p-3 bg-green-50 rounded-lg">
+                                    <p class="text-xs text-green-700"><strong>Tools:</strong> SurveyMonkey, Google Forms, Social Media Analytics</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3 & 4 -->
+                        <div class="space-y-6">
+                            <div class="bg-white p-6 rounded-lg shadow-md">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-purple-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4">3</div>
+                                    <h4 class="text-lg font-semibold text-purple-800">Evaluasi Kelayakan</h4>
+                                </div>
+                                <ul class="space-y-2 text-gray-700 text-sm">
+                                    <li class="flex items-start"><span class="text-purple-500 mr-2">•</span>Analisis finansial (ROI, Break Even Point)</li>
+                                    <li class="flex items-start"><span class="text-purple-500 mr-2">•</span>Evaluasi teknis dan operasional</li>
+                                    <li class="flex items-start"><span class="text-purple-500 mr-2">•</span>Assess risiko dan mitigasi</li>
+                                    <li class="flex items-start"><span class="text-purple-500 mr-2">•</span>Analisis legal dan regulasi</li>
+                                </ul>
+                                <div class="mt-4 p-3 bg-purple-50 rounded-lg">
+                                    <p class="text-xs text-purple-700"><strong>Framework:</strong> Business Model Canvas, Lean Canvas</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white p-6 rounded-lg shadow-md">
+                                <div class="flex items-center mb-4">
+                                    <div class="bg-orange-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold mr-4">4</div>
+                                    <h4 class="text-lg font-semibold text-orange-800">Implementasi & Testing</h4>
+                                </div>
+                                <ul class="space-y-2 text-gray-700 text-sm">
+                                    <li class="flex items-start"><span class="text-orange-500 mr-2">•</span>Buat MVP (Minimum Viable Product)</li>
+                                    <li class="flex items-start"><span class="text-orange-500 mr-2">•</span>Test market dengan skala kecil</li>
+                                    <li class="flex items-start"><span class="text-orange-500 mr-2">•</span>Kumpulkan feedback dan iterate</li>
+                                    <li class="flex items-start"><span class="text-orange-500 mr-2">•</span>Scale up jika terbukti viable</li>
+                                </ul>
+                                <div class="mt-4 p-3 bg-orange-50 rounded-lg">
+                                    <p class="text-xs text-orange-700"><strong>Metode:</strong> A/B Testing, Pilot Project, Soft Launch</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teknik Identifikasi Peluang -->
+                <div class="bg-gradient-to-r from-emerald-50 to-teal-50 p-8 rounded-lg">
+                    <h3 class="text-xl font-semibold text-emerald-800 mb-6 text-center">
+                        🔍 Teknik-Teknik Identifikasi Peluang Usaha
+                    </h3>
+                    
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                            <div class="text-3xl mb-3">🧠</div>
+                            <h4 class="font-semibold text-gray-800 mb-3">Brainstorming</h4>
+                            <p class="text-sm text-gray-600 mb-3">Kumpulkan ide sebanyak-banyaknya tanpa filter</p>
+                            <div class="text-xs bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full">Kreativitas</div>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                            <div class="text-3xl mb-3">🗺️</div>
+                            <h4 class="font-semibold text-gray-800 mb-3">Mind Mapping</h4>
+                            <p class="text-sm text-gray-600 mb-3">Visualisasi hubungan antar ide dan konsep</p>
+                            <div class="text-xs bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Struktural</div>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                            <div class="text-3xl mb-3">❓</div>
+                            <h4 class="font-semibold text-gray-800 mb-3">5W+1H Method</h4>
+                            <p class="text-sm text-gray-600 mb-3">What, Who, When, Where, Why, How</p>
+                            <div class="text-xs bg-purple-100 text-purple-700 px-3 py-1 rounded-full">Sistematis</div>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                            <div class="text-3xl mb-3">🔄</div>
+                            <h4 class="font-semibold text-gray-800 mb-3">SCAMPER</h4>
+                            <p class="text-sm text-gray-600 mb-3">Substitute, Combine, Adapt, Modify, Put to other use, Eliminate, Reverse</p>
+                            <div class="text-xs bg-orange-100 text-orange-700 px-3 py-1 rounded-full">Inovatif</div>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                            <div class="text-3xl mb-3">👁️</div>
+                            <h4 class="font-semibold text-gray-800 mb-3">Observasi Langsung</h4>
+                            <p class="text-sm text-gray-600 mb-3">Terjun langsung ke lapangan dan amati</p>
+                            <div class="text-xs bg-green-100 text-green-700 px-3 py-1 rounded-full">Empiris</div>
+                        </div>
+                        
+                        <div class="bg-white p-6 rounded-lg shadow-md text-center">
+                            <div class="text-3xl mb-3">📊</div>
+                            <h4 class="font-semibold text-gray-800 mb-3">Trend Analysis</h4>
+                            <p class="text-sm text-gray-600 mb-3">Analisis data dan prediksi tren masa depan</p>
+                            <div class="text-xs bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full">Data-driven</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Halaman 2: Analisis SWOT -->
+        <div id="page2" class="page hidden">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-indigo-800 mb-6 flex items-center">
+                    📊 Analisis SWOT untuk Peluang Usaha
+                </h2>
+                
+                <div class="mb-8">
+                    <p class="text-gray-700 leading-relaxed">
+                        SWOT adalah alat analisis strategis yang digunakan untuk mengevaluasi Strengths (Kekuatan), 
+                        Weaknesses (Kelemahan), Opportunities (Peluang), dan Threats (Ancaman) dalam konteks bisnis.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500">
+                        <h3 class="text-xl font-bold text-green-800 mb-4 flex items-center">
+                            💪 Strengths (Kekuatan)
+                        </h3>
+                        <ul class="space-y-2 text-green-700">
+                            <li>• Keunggulan kompetitif yang dimiliki</li>
+                            <li>• Sumber daya yang tersedia</li>
+                            <li>• Keahlian dan pengalaman</li>
+                            <li>• Reputasi dan brand image</li>
+                            <li>• Lokasi strategis</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-500">
+                        <h3 class="text-xl font-bold text-red-800 mb-4 flex items-center">
+                            ⚠️ Weaknesses (Kelemahan)
+                        </h3>
+                        <ul class="space-y-2 text-red-700">
+                            <li>• Keterbatasan sumber daya</li>
+                            <li>• Kurangnya pengalaman</li>
+                            <li>• Kelemahan produk/layanan</li>
+                            <li>• Keterbatasan modal</li>
+                            <li>• Kurangnya jaringan</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4 flex items-center">
+                            🌟 Opportunities (Peluang)
+                        </h3>
+                        <ul class="space-y-2 text-blue-700">
+                            <li>• Tren pasar yang berkembang</li>
+                            <li>• Perubahan teknologi</li>
+                            <li>• Kebijakan pemerintah yang mendukung</li>
+                            <li>• Perubahan gaya hidup konsumen</li>
+                            <li>• Pasar yang belum tergarap</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500">
+                        <h3 class="text-xl font-bold text-yellow-800 mb-4 flex items-center">
+                            ⚡ Threats (Ancaman)
+                        </h3>
+                        <ul class="space-y-2 text-yellow-700">
+                            <li>• Persaingan yang ketat</li>
+                            <li>• Perubahan regulasi</li>
+                            <li>• Krisis ekonomi</li>
+                            <li>• Perubahan selera konsumen</li>
+                            <li>• Teknologi yang mengganggu</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold text-purple-800 mb-4">Strategi Berdasarkan SWOT</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-white p-4 rounded-lg">
+                            <h4 class="font-semibold text-green-600 mb-2">SO Strategy</h4>
+                            <p class="text-sm text-gray-700">Gunakan kekuatan untuk memanfaatkan peluang</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg">
+                            <h4 class="font-semibold text-blue-600 mb-2">WO Strategy</h4>
+                            <p class="text-sm text-gray-700">Atasi kelemahan untuk memanfaatkan peluang</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg">
+                            <h4 class="font-semibold text-orange-600 mb-2">ST Strategy</h4>
+                            <p class="text-sm text-gray-700">Gunakan kekuatan untuk menghindari ancaman</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg">
+                            <h4 class="font-semibold text-red-600 mb-2">WT Strategy</h4>
+                            <p class="text-sm text-gray-700">Minimalkan kelemahan dan hindari ancaman</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Halaman 3: Studi Kasus -->
+        <div id="page3" class="page hidden">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-indigo-800 mb-6 flex items-center">
+                    🎯 Studi Kasus Interaktif
+                </h2>
+                
+                <!-- Studi Kasus 1: Analisis SWOT -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Kasus 1: Analisis SWOT Kedai Kopi</h3>
+                    <div class="bg-gray-50 p-6 rounded-lg mb-4">
+                        <p class="text-gray-700 mb-4">
+                            <strong>Skenario:</strong> Anda ingin membuka kedai kopi di dekat kampus. 
+                            Anda memiliki pengalaman barista, modal terbatas, dan lokasi strategis tersedia.
+                        </p>
+                        <button onclick="toggleSWOTAnalysis()" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors">
+                            Mulai Analisis SWOT
+                        </button>
+                    </div>
+                    
+                    <div id="swotAnalysis" class="hidden">
+                        <div class="grid md:grid-cols-2 gap-4 mb-4">
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-800 mb-2">Strengths</h4>
+                                <div id="strengthsList"></div>
+                                <input type="text" id="strengthInput" placeholder="Tambahkan kekuatan..." class="w-full mt-2 p-2 border rounded">
+                                <button onclick="addSWOTItem('strengths', 'strengthInput', 'strengthsList')" class="mt-2 bg-green-600 text-white px-3 py-1 rounded text-sm">Tambah</button>
+                            </div>
+                            <div class="bg-red-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-red-800 mb-2">Weaknesses</h4>
+                                <div id="weaknessesList"></div>
+                                <input type="text" id="weaknessInput" placeholder="Tambahkan kelemahan..." class="w-full mt-2 p-2 border rounded">
+                                <button onclick="addSWOTItem('weaknesses', 'weaknessInput', 'weaknessesList')" class="mt-2 bg-red-600 text-white px-3 py-1 rounded text-sm">Tambah</button>
+                            </div>
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-blue-800 mb-2">Opportunities</h4>
+                                <div id="opportunitiesList"></div>
+                                <input type="text" id="opportunityInput" placeholder="Tambahkan peluang..." class="w-full mt-2 p-2 border rounded">
+                                <button onclick="addSWOTItem('opportunities', 'opportunityInput', 'opportunitiesList')" class="mt-2 bg-blue-600 text-white px-3 py-1 rounded text-sm">Tambah</button>
+                            </div>
+                            <div class="bg-yellow-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-yellow-800 mb-2">Threats</h4>
+                                <div id="threatsList"></div>
+                                <input type="text" id="threatInput" placeholder="Tambahkan ancaman..." class="w-full mt-2 p-2 border rounded">
+                                <button onclick="addSWOTItem('threats', 'threatInput', 'threatsList')" class="mt-2 bg-yellow-600 text-white px-3 py-1 rounded text-sm">Tambah</button>
+                            </div>
+                        </div>
+                        <button onclick="generateStrategy()" class="bg-purple-600 text-white px-4 py-2 rounded-lg hover:bg-purple-700 transition-colors">
+                            Generate Strategi
+                        </button>
+                        <div id="strategyResult" class="mt-4"></div>
+                    </div>
+                </div>
+                
+                <!-- Studi Kasus 2: Pemilihan Lokasi -->
+                <div class="border-t pt-8">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Kasus 2: Pemilihan Lokasi Usaha</h3>
+                    <div class="bg-gray-50 p-6 rounded-lg mb-4">
+                        <p class="text-gray-700 mb-4">
+                            <strong>Skenario:</strong> Anda ingin membuka toko online shop dengan pickup point. 
+                            Pilih lokasi terbaik berdasarkan kriteria yang tersedia.
+                        </p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-4 mb-4">
+                        <div class="bg-white border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-indigo-500 transition-colors location-option" onclick="selectLocation(1)">
+                            <h4 class="font-semibold text-gray-800 mb-2">📍 Lokasi A: Pusat Kota</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Lalu lintas tinggi</li>
+                                <li>• Sewa mahal</li>
+                                <li>• Akses mudah</li>
+                                <li>• Parkir terbatas</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-indigo-500 transition-colors location-option" onclick="selectLocation(2)">
+                            <h4 class="font-semibold text-gray-800 mb-2">📍 Lokasi B: Perumahan</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Target market jelas</li>
+                                <li>• Sewa terjangkau</li>
+                                <li>• Lalu lintas sedang</li>
+                                <li>• Parkir luas</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white border-2 border-gray-200 p-4 rounded-lg cursor-pointer hover:border-indigo-500 transition-colors location-option" onclick="selectLocation(3)">
+                            <h4 class="font-semibold text-gray-800 mb-2">📍 Lokasi C: Dekat Kampus</h4>
+                            <ul class="text-sm text-gray-600 space-y-1">
+                                <li>• Target mahasiswa</li>
+                                <li>• Sewa sedang</li>
+                                <li>• Ramai saat kuliah</li>
+                                <li>• Sepi saat libur</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div id="locationAnalysis" class="hidden mt-4 p-4 bg-indigo-50 rounded-lg">
+                        <h4 class="font-semibold text-indigo-800 mb-2">Analisis Pilihan Anda:</h4>
+                        <div id="locationResult"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Halaman 4: Kuis -->
+        <div id="page4" class="page hidden">
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-2xl font-bold text-indigo-800 mb-6 flex items-center">
+                    🧠 Kuis Peluang Usaha
+                </h2>
+                
+                <div id="quizStart" class="text-center">
+                    <div class="bg-gradient-to-r from-indigo-50 to-blue-50 p-8 rounded-lg mb-6">
+                        <h3 class="text-xl font-semibold text-indigo-800 mb-4">Siap untuk menguji pemahaman Anda?</h3>
+                        <p class="text-gray-700 mb-6">
+                            Kuis ini terdiri dari 15 soal yang dipilih secara acak dari bank soal 40 pertanyaan. 
+                            Setiap soal memiliki 4 pilihan jawaban.
+                        </p>
+                        <button onclick="startQuiz()" class="bg-indigo-600 text-white px-8 py-3 rounded-lg hover:bg-indigo-700 transition-colors text-lg font-semibold">
+                            Mulai Kuis
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="quizContent" class="hidden">
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="text-sm text-gray-600">
+                            Soal <span id="currentQuestion">1</span> dari <span id="totalQuestions">15</span>
+                        </div>
+                        <div class="text-sm text-gray-600">
+                            Waktu: <span id="timer" class="font-semibold">15:00</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                        <h3 id="questionText" class="text-lg font-semibold text-gray-800 mb-4"></h3>
+                        <div id="answerOptions" class="space-y-3"></div>
+                    </div>
+                    
+                    <div class="flex justify-between">
+                        <button id="prevBtn" onclick="previousQuestion()" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors" disabled>
+                            ← Sebelumnya
+                        </button>
+                        <button id="nextBtn" onclick="nextQuestion()" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors">
+                            Selanjutnya →
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="quizResult" class="hidden">
+                    <div class="text-center">
+                        <div class="bg-gradient-to-r from-green-50 to-blue-50 p-8 rounded-lg">
+                            <h3 class="text-2xl font-bold text-green-800 mb-4">🎉 Kuis Selesai!</h3>
+                            <div class="text-4xl font-bold text-indigo-600 mb-2" id="finalScore">0</div>
+                            <p class="text-gray-700 mb-4" id="scoreMessage"></p>
+                            <div class="grid md:grid-cols-3 gap-4 mb-6">
+                                <div class="bg-white p-4 rounded-lg">
+                                    <div class="text-2xl font-bold text-green-600" id="correctAnswers">0</div>
+                                    <div class="text-sm text-gray-600">Benar</div>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <div class="text-2xl font-bold text-red-600" id="wrongAnswers">0</div>
+                                    <div class="text-sm text-gray-600">Salah</div>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <div class="text-2xl font-bold text-yellow-600" id="timeUsed">0</div>
+                                    <div class="text-sm text-gray-600">Waktu (menit)</div>
+                                </div>
+                            </div>
+                            <button onclick="restartQuiz()" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors">
+                                Ulangi Kuis
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-indigo-800 to-blue-900 text-white mt-12">
+        <div class="container mx-auto px-6 py-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- School Info -->
+                <div class="text-center md:text-left">
+                    <h3 class="text-xl font-bold mb-4 flex items-center justify-center md:justify-start">
+                        🏫 SMK PK PASIM Plus Kota Sukabumi
+                    </h3>
+                    <p class="text-indigo-200 mb-2">Kreatif, Inovatif, dan Kewirausahaan</p>
+                    <p class="text-indigo-300 text-sm">Agus Tryanto, M.Pd</p>
+                </div>
+                
+                <!-- Social Media Links -->
+                <div class="text-center">
+                    <h4 class="text-lg font-semibold mb-4">🌐 Hubungi Kami</h4>
+                    <div class="space-y-3">
+                        <a href="https://pasimcreativeschool.com/" target="_blank" 
+                           class="flex items-center justify-center bg-white bg-opacity-10 hover:bg-opacity-20 transition-all duration-300 rounded-lg p-3 group">
+                            <svg class="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.56-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.56.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.498-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="group-hover:text-yellow-300 transition-colors">Website Sekolah</span>
+                        </a>
+                        <a href="https://www.instagram.com/smkpasim.official/" target="_blank" 
+                           class="flex items-center justify-center bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 transition-all duration-300 rounded-lg p-3 group">
+                            <svg class="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 6.62 5.367 11.987 11.988 11.987s11.987-5.367 11.987-11.987C24.004 5.367 18.637.001 12.017.001zM8.449 16.988c-1.297 0-2.448-.49-3.323-1.297C4.198 14.895 3.708 13.744 3.708 12.447s.49-2.448 1.418-3.323c.875-.807 2.026-1.297 3.323-1.297s2.448.49 3.323 1.297c.928.875 1.418 2.026 1.418 3.323s-.49 2.448-1.418 3.244c-.875.807-2.026 1.297-3.323 1.297zm7.83-9.781c-.315 0-.595-.122-.805-.332-.21-.21-.332-.49-.332-.805s.122-.595.332-.805c.21-.21.49-.332.805-.332s.595.122.805.332c.21.21.332.49.332.805s-.122.595-.332.805c-.21.21-.49.332-.805.332zm0 0"/>
+                                <path d="M12.017 7.075c-2.709 0-4.912 2.203-4.912 4.912s2.203 4.912 4.912 4.912 4.912-2.203 4.912-4.912-2.203-4.912-4.912-4.912zm0 8.09c-1.751 0-3.178-1.427-3.178-3.178s1.427-3.178 3.178-3.178 3.178 1.427 3.178 3.178-1.427 3.178-3.178 3.178z"/>
+                            </svg>
+                            <span class="group-hover:text-yellow-300 transition-colors">@smkpasim.official</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Learning Module Info -->
+                <div class="text-center md:text-right">
+                    <h4 class="text-lg font-semibold mb-4">📚 Modul Pembelajaran</h4>
+                    <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                        <p class="text-indigo-200 text-sm mb-2">Kewirausahaan Digital</p>
+                        <p class="text-indigo-300 text-xs">Peluang Usaha & Analisis SWOT</p>
+                        <div class="mt-3 flex justify-center md:justify-end">
+                            <span class="bg-yellow-400 text-indigo-900 px-3 py-1 rounded-full text-xs font-semibold">
+                                Interaktif
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Copyright -->
+            <div class="border-t border-indigo-700 mt-8 pt-6 text-center">
+                <p class="text-indigo-300 text-sm">
+                    © 2024 SMK PK PASIM Plus Kota Sukabumi. 
+                    <span class="text-yellow-300">Semua hak dilindungi.</span>
+                </p>
+                <p class="text-indigo-400 text-xs mt-2">
+                    Dikembangkan dengan ❤️ untuk pendidikan kewirausahaan yang lebih baik
+                </p>
+            </div>
+        </div>
+        
+        <!-- Decorative elements -->
+        <div class="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600"></div>
+    </footer>
+
+    <script>
+        // Global variables
+        let currentPage = 1;
+        let swotData = {
+            strengths: [],
+            weaknesses: [],
+            opportunities: [],
+            threats: []
+        };
+        
+        // Quiz variables
+        let quizQuestions = [];
+        let currentQuizQuestion = 0;
+        let userAnswers = [];
+        let quizTimer;
+        let timeLeft = 900; // 15 minutes
+        
+        // Bank soal (40 soal)
+        const questionBank = [
+            {
+                question: "Apa yang dimaksud dengan peluang usaha?",
+                options: ["Kesempatan untuk memulai usaha", "Modal untuk berbisnis", "Tempat untuk berjualan", "Produk yang akan dijual"],
+                correct: 0
+            },
+            {
+                question: "Manakah yang bukan karakteristik peluang usaha yang baik?",
+                options: ["Memiliki daya tarik konsumen", "Dapat memberikan keuntungan", "Memerlukan modal besar", "Didukung lingkungan"],
+                correct: 2
+            },
+            {
+                question: "SWOT adalah singkatan dari?",
+                options: ["Strength, Weakness, Opportunity, Threat", "Strong, Weak, Open, Target", "System, Work, Operation, Time", "Simple, Wide, Optimal, Total"],
+                correct: 0
+            },
+            {
+                question: "Dalam analisis SWOT, faktor internal meliputi?",
+                options: ["Opportunity dan Threat", "Strength dan Weakness", "Strength dan Opportunity", "Weakness dan Threat"],
+                correct: 1
+            },
+            {
+                question: "Strategi SO dalam SWOT bertujuan untuk?",
+                options: ["Mengatasi kelemahan", "Menggunakan kekuatan untuk memanfaatkan peluang", "Menghindari ancaman", "Meminimalkan risiko"],
+                correct: 1
+            },
+            {
+                question: "Sumber peluang usaha dapat berasal dari?",
+                options: ["Perubahan lingkungan saja", "Kebutuhan konsumen saja", "Inovasi teknologi saja", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Langkah pertama dalam mengidentifikasi peluang usaha adalah?",
+                options: ["Mencari modal", "Observasi lingkungan", "Membuat produk", "Mencari lokasi"],
+                correct: 1
+            },
+            {
+                question: "Faktor yang harus dipertimbangkan dalam pemilihan lokasi usaha adalah?",
+                options: ["Akses transportasi", "Target market", "Biaya sewa", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Ancaman (Threat) dalam analisis SWOT dapat berupa?",
+                options: ["Kekuatan pesaing", "Perubahan regulasi", "Krisis ekonomi", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Peluang usaha yang baik harus memiliki karakteristik?",
+                options: ["Sulit ditiru pesaing", "Memberikan nilai tambah", "Sesuai dengan kemampuan", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Dalam konteks kewirausahaan, inovasi dapat berupa?",
+                options: ["Produk baru", "Proses baru", "Pasar baru", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Strategi WT dalam SWOT bertujuan untuk?",
+                options: ["Memaksimalkan kekuatan", "Memanfaatkan peluang", "Meminimalkan kelemahan dan menghindari ancaman", "Mengembangkan produk"],
+                correct: 2
+            },
+            {
+                question: "Globalisasi dapat menciptakan peluang usaha melalui?",
+                options: ["Akses pasar internasional", "Transfer teknologi", "Pertukaran budaya", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Evaluasi kelayakan usaha meliputi aspek?",
+                options: ["Teknis dan finansial", "Pasar dan manajemen", "Lingkungan dan sosial", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Kelemahan (Weakness) dalam SWOT dapat berupa?",
+                options: ["Keterbatasan modal", "Kurangnya pengalaman", "Produk kurang inovatif", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Tren yang dapat menciptakan peluang usaha adalah?",
+                options: ["Perubahan gaya hidup", "Perkembangan teknologi", "Perubahan demografi", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Dalam memilih peluang usaha, wirausaha harus mempertimbangkan?",
+                options: ["Passion dan minat", "Kemampuan dan sumber daya", "Potensi pasar", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Strategi ST dalam SWOT bertujuan untuk?",
+                options: ["Menggunakan kekuatan untuk menghindari ancaman", "Mengatasi kelemahan", "Memanfaatkan peluang", "Mengembangkan produk"],
+                correct: 0
+            },
+            {
+                question: "Riset pasar penting dilakukan untuk?",
+                options: ["Memahami kebutuhan konsumen", "Menganalisis pesaing", "Menentukan harga", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Kekuatan (Strength) dalam SWOT dapat berupa?",
+                options: ["Keunggulan produk", "Lokasi strategis", "Tim yang kompeten", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Peluang usaha di era digital dapat berupa?",
+                options: ["E-commerce", "Digital marketing", "Aplikasi mobile", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Faktor eksternal yang mempengaruhi peluang usaha adalah?",
+                options: ["Kondisi ekonomi", "Kebijakan pemerintah", "Perubahan teknologi", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Dalam menganalisis pesaing, yang perlu diperhatikan adalah?",
+                options: ["Produk yang ditawarkan", "Strategi pemasaran", "Kekuatan dan kelemahan", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Strategi WO dalam SWOT bertujuan untuk?",
+                options: ["Mengatasi kelemahan untuk memanfaatkan peluang", "Menggunakan kekuatan", "Menghindari ancaman", "Mengembangkan produk"],
+                correct: 0
+            },
+            {
+                question: "Segmentasi pasar penting untuk?",
+                options: ["Menentukan target konsumen", "Mengembangkan produk", "Menentukan strategi pemasaran", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Inovasi dalam bisnis dapat dilakukan pada?",
+                options: ["Produk", "Proses", "Pemasaran", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Analisis SWOT sebaiknya dilakukan?",
+                options: ["Sekali saja", "Setiap tahun", "Secara berkala", "Tidak perlu dilakukan"],
+                correct: 2
+            },
+            {
+                question: "Peluang usaha yang berkelanjutan harus?",
+                options: ["Ramah lingkungan", "Memberikan manfaat jangka panjang", "Dapat beradaptasi", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Dalam era digital, ancaman bagi usaha tradisional adalah?",
+                options: ["Disrupsi teknologi", "Perubahan perilaku konsumen", "Kompetisi online", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Validasi ide bisnis dapat dilakukan melalui?",
+                options: ["Survey konsumen", "Prototype testing", "Market research", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Faktor yang mempengaruhi daya tarik industri adalah?",
+                options: ["Tingkat persaingan", "Potensi pertumbuhan", "Hambatan masuk", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Networking penting bagi wirausaha untuk?",
+                options: ["Mencari peluang bisnis", "Mendapatkan mentor", "Akses ke sumber daya", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Dalam mengevaluasi peluang usaha, perlu mempertimbangkan?",
+                options: ["Return on investment", "Risiko yang terlibat", "Waktu pengembalian modal", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Peluang usaha berbasis teknologi memiliki karakteristik?",
+                options: ["Scalable", "Inovatif", "Berpotensi disruptif", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Analisis kompetitor meliputi?",
+                options: ["Identifikasi pesaing", "Analisis strategi pesaing", "Benchmarking", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Peluang usaha sosial (social entrepreneurship) bertujuan untuk?",
+                options: ["Menyelesaikan masalah sosial", "Memberikan dampak positif", "Menciptakan nilai sosial", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Dalam mengidentifikasi peluang, wirausaha harus memiliki?",
+                options: ["Kreativitas", "Kepekaan terhadap lingkungan", "Kemampuan analisis", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Model bisnis yang tepat harus?",
+                options: ["Sesuai dengan target market", "Sustainable", "Profitable", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Peluang usaha di sektor kreatif dapat berupa?",
+                options: ["Desain grafis", "Konten digital", "Kerajinan tangan", "Semua jawaban benar"],
+                correct: 3
+            },
+            {
+                question: "Pentingnya timing dalam memanfaatkan peluang usaha adalah?",
+                options: ["Menghindari pesaing", "Memanfaatkan tren", "Mengoptimalkan sumber daya", "Semua jawaban benar"],
+                correct: 3
+            }
+        ];
+
+        // Navigation functions
+        function showPage(pageNum) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.add('hidden');
+            });
+            
+            // Show selected page
+            document.getElementById(`page${pageNum}`).classList.remove('hidden');
+            document.getElementById(`page${pageNum}`).classList.add('fade-in');
+            
+            // Update navigation
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-indigo-800');
+            });
+            document.getElementById(`nav${pageNum}`).classList.add('active', 'bg-indigo-800');
+            
+            currentPage = pageNum;
+        }
+
+        // SWOT Analysis functions
+        function toggleSWOTAnalysis() {
+            const analysis = document.getElementById('swotAnalysis');
+            analysis.classList.toggle('hidden');
+            analysis.classList.add('slide-in');
+        }
+
+        function addSWOTItem(category, inputId, listId) {
+            const input = document.getElementById(inputId);
+            const list = document.getElementById(listId);
+            const value = input.value.trim();
+            
+            if (value) {
+                swotData[category].push(value);
+                const item = document.createElement('div');
+                item.className = 'flex items-center justify-between bg-white p-2 rounded mb-2';
+                item.innerHTML = `
+                    <span class="text-sm">${value}</span>
+                    <button onclick="removeSWOTItem('${category}', ${swotData[category].length - 1}, this)" class="text-red-500 hover:text-red-700">×</button>
+                `;
+                list.appendChild(item);
+                input.value = '';
+            }
+        }
+
+        function removeSWOTItem(category, index, element) {
+            swotData[category].splice(index, 1);
+            element.parentElement.remove();
+        }
+
+        function generateStrategy() {
+            const result = document.getElementById('strategyResult');
+            let strategies = [];
+            
+            if (swotData.strengths.length > 0 && swotData.opportunities.length > 0) {
+                strategies.push(`<div class="bg-green-50 p-4 rounded-lg mb-2">
+                    <strong>SO Strategy:</strong> Manfaatkan ${swotData.strengths[0]} untuk meraih ${swotData.opportunities[0]}
+                </div>`);
+            }
+            
+            if (swotData.weaknesses.length > 0 && swotData.opportunities.length > 0) {
+                strategies.push(`<div class="bg-blue-50 p-4 rounded-lg mb-2">
+                    <strong>WO Strategy:</strong> Atasi ${swotData.weaknesses[0]} untuk memanfaatkan ${swotData.opportunities[0]}
+                </div>`);
+            }
+            
+            result.innerHTML = strategies.join('') || '<p class="text-gray-600">Lengkapi analisis SWOT untuk mendapatkan rekomendasi strategi.</p>';
+        }
+
+        // Location selection functions
+        function selectLocation(locationNum) {
+            // Remove previous selection
+            document.querySelectorAll('.location-option').forEach(option => {
+                option.classList.remove('border-indigo-500', 'bg-indigo-50');
+            });
+            
+            // Add selection to clicked option
+            event.currentTarget.classList.add('border-indigo-500', 'bg-indigo-50');
+            
+            // Show analysis
+            const analysis = document.getElementById('locationAnalysis');
+            const result = document.getElementById('locationResult');
+            
+            let analysisText = '';
+            switch(locationNum) {
+                case 1:
+                    analysisText = `
+                        <p class="text-indigo-700 mb-2"><strong>Lokasi A - Pusat Kota:</strong></p>
+                        <p class="text-sm text-gray-700">Pilihan yang baik untuk visibilitas tinggi dan akses mudah. 
+                        Namun, biaya operasional tinggi dan parkir terbatas dapat menjadi tantangan. 
+                        Cocok untuk produk premium atau layanan yang membutuhkan lokasi prestisius.</p>
+                    `;
+                    break;
+                case 2:
+                    analysisText = `
+                        <p class="text-indigo-700 mb-2"><strong>Lokasi B - Perumahan:</strong></p>
+                        <p class="text-sm text-gray-700">Pilihan strategis untuk target market yang jelas dengan biaya operasional rendah. 
+                        Cocok untuk usaha yang fokus pada komunitas lokal dan produk kebutuhan sehari-hari. 
+                        Potensi untuk membangun loyalitas pelanggan tinggi.</p>
+                    `;
+                    break;
+                case 3:
+                    analysisText = `
+                        <p class="text-indigo-700 mb-2"><strong>Lokasi C - Dekat Kampus:</strong></p>
+                        <p class="text-sm text-gray-700">Ideal untuk produk dan layanan yang dibutuhkan mahasiswa. 
+                        Perlu mempertimbangkan fluktuasi musiman (libur kuliah). 
+                        Cocok untuk makanan, alat tulis, fotokopi, dan layanan mahasiswa lainnya.</p>
+                    `;
+                    break;
+            }
+            
+            result.innerHTML = analysisText;
+            analysis.classList.remove('hidden');
+            analysis.classList.add('slide-in');
+        }
+
+        // Quiz functions
+        function startQuiz() {
+            // Select 15 random questions
+            const shuffled = [...questionBank].sort(() => 0.5 - Math.random());
+            quizQuestions = shuffled.slice(0, 15);
+            currentQuizQuestion = 0;
+            userAnswers = new Array(15).fill(null);
+            timeLeft = 900; // 15 minutes
+            
+            document.getElementById('quizStart').classList.add('hidden');
+            document.getElementById('quizContent').classList.remove('hidden');
+            
+            displayQuestion();
+            startTimer();
+        }
+
+        function displayQuestion() {
+            const question = quizQuestions[currentQuizQuestion];
+            document.getElementById('currentQuestion').textContent = currentQuizQuestion + 1;
+            document.getElementById('questionText').textContent = question.question;
+            
+            const optionsContainer = document.getElementById('answerOptions');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'flex items-center';
+                optionDiv.innerHTML = `
+                    <input type="radio" id="option${index}" name="answer" value="${index}" 
+                           ${userAnswers[currentQuizQuestion] === index ? 'checked' : ''}
+                           onchange="selectAnswer(${index})" class="mr-3">
+                    <label for="option${index}" class="cursor-pointer text-gray-700 hover:text-indigo-600">
+                        ${String.fromCharCode(65 + index)}. ${option}
+                    </label>
+                `;
+                optionsContainer.appendChild(optionDiv);
+            });
+            
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentQuizQuestion === 0;
+            document.getElementById('nextBtn').textContent = 
+                currentQuizQuestion === 14 ? 'Selesai' : 'Selanjutnya →';
+        }
+
+        function selectAnswer(answerIndex) {
+            userAnswers[currentQuizQuestion] = answerIndex;
+        }
+
+        function nextQuestion() {
+            if (currentQuizQuestion < 14) {
+                currentQuizQuestion++;
+                displayQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuizQuestion > 0) {
+                currentQuizQuestion--;
+                displayQuestion();
+            }
+        }
+
+        function startTimer() {
+            quizTimer = setInterval(() => {
+                timeLeft--;
+                const minutes = Math.floor(timeLeft / 60);
+                const seconds = timeLeft % 60;
+                document.getElementById('timer').textContent = 
+                    `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                
+                if (timeLeft <= 0) {
+                    finishQuiz();
+                }
+            }, 1000);
+        }
+
+        function finishQuiz() {
+            clearInterval(quizTimer);
+            
+            // Calculate score
+            let correct = 0;
+            for (let i = 0; i < quizQuestions.length; i++) {
+                if (userAnswers[i] === quizQuestions[i].correct) {
+                    correct++;
+                }
+            }
+            
+            const score = Math.round((correct / 15) * 100);
+            const timeUsed = Math.round((900 - timeLeft) / 60);
+            
+            // Display results
+            document.getElementById('quizContent').classList.add('hidden');
+            document.getElementById('quizResult').classList.remove('hidden');
+            
+            document.getElementById('finalScore').textContent = `${score}%`;
+            document.getElementById('correctAnswers').textContent = correct;
+            document.getElementById('wrongAnswers').textContent = 15 - correct;
+            document.getElementById('timeUsed').textContent = timeUsed;
+            
+            let message = '';
+            if (score >= 80) message = 'Excellent! Anda menguasai materi dengan baik!';
+            else if (score >= 60) message = 'Good! Pemahaman Anda cukup baik.';
+            else message = 'Perlu belajar lebih giat lagi.';
+            
+            document.getElementById('scoreMessage').textContent = message;
+        }
+
+        function restartQuiz() {
+            document.getElementById('quizResult').classList.add('hidden');
+            document.getElementById('quizStart').classList.remove('hidden');
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            showPage(1);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'971ee8b801169de3',t:'MTc1NTY2MTY0My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
