@@ -555,7 +555,38 @@
                             Kuis ini terdiri dari 15 soal yang dipilih secara acak dari bank soal 40 pertanyaan. 
                             Setiap soal memiliki 4 pilihan jawaban.
                         </p>
-                        <button onclick="startQuiz()" class="bg-indigo-600 text-white px-8 py-3 rounded-lg hover:bg-indigo-700 transition-colors text-lg font-semibold">
+                        
+                        <!-- Form Identitas Siswa -->
+                        <div class="bg-white p-6 rounded-lg shadow-md mb-6 max-w-md mx-auto">
+                            <h4 class="text-lg font-semibold text-gray-800 mb-4">📝 Identitas Siswa</h4>
+                            <div class="space-y-4 text-left">
+                                <div>
+                                    <label for="studentName" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap *</label>
+                                    <input type="text" id="studentName" required 
+                                           class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                           placeholder="Masukkan nama lengkap">
+                                </div>
+                                <div>
+                                    <label for="studentClass" class="block text-sm font-medium text-gray-700 mb-1">Kelas *</label>
+                                    <select id="studentClass" required 
+                                            class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                                        <option value="">Pilih Kelas</option>
+                                        <option value="XI PPLG 1">XI PPLG 1</option>
+                                        <option value="XI PPLG 2">XI PPLG 2</option>
+                                        <option value="XI TJKT 1">XI TJKT 1</option>
+                                        <option value="XI TJKT 2">XI TJKT 2</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="studentNIS" class="block text-sm font-medium text-gray-700 mb-1">NIS</label>
+                                    <input type="text" id="studentNIS" 
+                                           class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                                           placeholder="Nomor Induk Siswa (opsional)">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button onclick="validateAndStartQuiz()" class="bg-indigo-600 text-white px-8 py-3 rounded-lg hover:bg-indigo-700 transition-colors text-lg font-semibold">
                             Mulai Kuis
                         </button>
                     </div>
@@ -1020,6 +1051,32 @@
         }
 
         // Quiz functions
+        function validateAndStartQuiz() {
+            const studentName = document.getElementById('studentName').value.trim();
+            const studentClass = document.getElementById('studentClass').value;
+            
+            if (!studentName) {
+                alert('Mohon masukkan nama lengkap Anda!');
+                document.getElementById('studentName').focus();
+                return;
+            }
+            
+            if (!studentClass) {
+                alert('Mohon pilih kelas Anda!');
+                document.getElementById('studentClass').focus();
+                return;
+            }
+            
+            // Store student info
+            window.studentInfo = {
+                name: studentName,
+                class: studentClass,
+                nis: document.getElementById('studentNIS').value.trim() || 'Tidak diisi'
+            };
+            
+            startQuiz();
+        }
+
         function startQuiz() {
             // Select 15 random questions
             const shuffled = [...questionBank].sort(() => 0.5 - Math.random());
@@ -1102,14 +1159,42 @@
             
             // Calculate score
             let correct = 0;
+            let detailedAnswers = [];
+            
             for (let i = 0; i < quizQuestions.length; i++) {
-                if (userAnswers[i] === quizQuestions[i].correct) {
-                    correct++;
-                }
+                const isCorrect = userAnswers[i] === quizQuestions[i].correct;
+                if (isCorrect) correct++;
+                
+                detailedAnswers.push({
+                    questionNumber: i + 1,
+                    question: quizQuestions[i].question,
+                    userAnswer: userAnswers[i] !== null ? quizQuestions[i].options[userAnswers[i]] : 'Tidak dijawab',
+                    correctAnswer: quizQuestions[i].options[quizQuestions[i].correct],
+                    isCorrect: isCorrect
+                });
             }
             
             const score = Math.round((correct / 15) * 100);
             const timeUsed = Math.round((900 - timeLeft) / 60);
+            
+            // Save to Google Sheets
+            saveQuizResults({
+                // Student Information
+                studentName: window.studentInfo?.name || 'Tidak diisi',
+                studentClass: window.studentInfo?.class || 'Tidak diisi',
+                studentNIS: window.studentInfo?.nis || 'Tidak diisi',
+                
+                // Quiz Results
+                timestamp: new Date().toLocaleString('id-ID'),
+                score: score,
+                correctAnswers: correct,
+                wrongAnswers: 15 - correct,
+                timeUsed: timeUsed,
+                totalQuestions: 15,
+                
+                // Detailed answers for analysis
+                detailedAnswers: detailedAnswers
+            });
             
             // Display results
             document.getElementById('quizContent').classList.add('hidden');
@@ -1128,6 +1213,89 @@
             document.getElementById('scoreMessage').textContent = message;
         }
 
+        // Function to save quiz results to Google Sheets
+        async function saveQuizResults(results) {
+            // Google Apps Script Web App URL - GANTI DENGAN URL WEB APP ANDA
+            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyVNzCa2gbgC2y2IOcZ1RY3a9D7rtEQ4wm7ZUhR9SHMhc7eq4BFgaWPOBU-CsMWLWIF/exec';
+            
+            try {
+                // Show saving indicator
+                showSavingIndicator(true);
+                
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        action: 'saveQuizResult',
+                        data: results
+                    })
+                });
+                
+                // Show success message
+                showSavingIndicator(false, true);
+                
+            } catch (error) {
+                console.error('Error saving to Google Sheets:', error);
+                showSavingIndicator(false, false);
+            }
+        }
+
+        // Function to show saving indicator
+        function showSavingIndicator(saving, success = null) {
+            let indicator = document.getElementById('savingIndicator');
+            
+            if (!indicator) {
+                indicator = document.createElement('div');
+                indicator.id = 'savingIndicator';
+                indicator.className = 'fixed top-4 right-4 px-4 py-2 rounded-lg shadow-lg z-50 transition-all duration-300';
+                document.body.appendChild(indicator);
+            }
+            
+            if (saving) {
+                indicator.className = 'fixed top-4 right-4 px-4 py-2 rounded-lg shadow-lg z-50 transition-all duration-300 bg-blue-500 text-white';
+                indicator.innerHTML = `
+                    <div class="flex items-center">
+                        <svg class="animate-spin -ml-1 mr-3 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Menyimpan hasil...
+                    </div>
+                `;
+                indicator.style.display = 'block';
+            } else {
+                if (success === true) {
+                    indicator.className = 'fixed top-4 right-4 px-4 py-2 rounded-lg shadow-lg z-50 transition-all duration-300 bg-green-500 text-white';
+                    indicator.innerHTML = `
+                        <div class="flex items-center">
+                            <svg class="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Hasil tersimpan!
+                        </div>
+                    `;
+                } else if (success === false) {
+                    indicator.className = 'fixed top-4 right-4 px-4 py-2 rounded-lg shadow-lg z-50 transition-all duration-300 bg-red-500 text-white';
+                    indicator.innerHTML = `
+                        <div class="flex items-center">
+                            <svg class="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                            </svg>
+                            Gagal menyimpan
+                        </div>
+                    `;
+                }
+                
+                // Hide after 3 seconds
+                setTimeout(() => {
+                    indicator.style.display = 'none';
+                }, 3000);
+            }
+        }
+
         function restartQuiz() {
             document.getElementById('quizResult').classList.add('hidden');
             document.getElementById('quizStart').classList.remove('hidden');
@@ -1138,5 +1306,5 @@
             showPage(1);
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'971ee8b801169de3',t:'MTc1NTY2MTY0My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'97202b9fb196b882',t:'MTc1NTY3NDg3MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
